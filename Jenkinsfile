@@ -1,9 +1,7 @@
 pipeline {
   agent any
 
-  triggers {
-    cron('H/5 * * * *') // Runs every 5 minutes
-  }
+  
 
   stages {
     stage('Clean Workspace') {
@@ -17,7 +15,7 @@ pipeline {
         // Clone from your GitHub repository, using the correct branch name and credentials
         git branch: "${env.BRANCH_NAME}",
            credentialsId: 'srihithadendukuri', // Replace with your credential ID
-           url: 'https://github.com/hemasrihitha/learningjenkins.git'
+           url: 'git@github.com:Srihitha-dendukuri/u.git'
       }
     }
 
