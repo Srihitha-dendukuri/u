@@ -1,9 +1,7 @@
 pipeline {
   agent any
 
-  triggers {
-    cron('H/5 * * * *') // Runs every 5 minutes
-  }
+  
 
   stages {
     stage('Clean Workspace') {
@@ -16,7 +14,7 @@ pipeline {
       steps {
         // Clone from your GitHub repository, using the correct branch name and credentials
         git branch: "${env.BRANCH_NAME}",
-           credentialsId: 'hemasrihithadendukuri', // Replace with your credential ID
+           credentialsId: 'srihithadendukuri', // Replace with your credential ID
            url: 'https://github.com/hemasrihitha/learningjenkins.git'
       }
     }
@@ -41,7 +39,7 @@ pipeline {
         // **Important:** Replace with your actual deployment command and URL
         sh """
           
-          scp -rp ${env.WORKSPACE}/index.html cloud_user@f120574411474f3dbf996693ff893a102c.mylabserver.com:/var/www/html/index.html
+          scp -rp ${env.WORKSPACE}/index.html cloud_user@2874335c782c.mylabserver.com:/var/www/html/index.html
         """
       }
     }
